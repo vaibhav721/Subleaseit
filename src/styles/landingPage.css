@@ -1,0 +1,41 @@
+.logo {
+  width: 300px;
+  height: 80px;
+}
+
+.logo_house {
+  width: 45px;
+  height: 30px;
+}
+
+/* Add this CSS in your CSS file or style section of the component */
+.member-photo {
+  height: 250px; /* Adjust the height as needed */
+  object-fit: cover; /* To ensure the image covers the entire div and maintains its aspect ratio */
+}
+
+/* Small page media query for screens up to 576px */
+@media (max-width: 576px) {
+  .logo {
+    width: 200px;
+    height: 53.33px;
+  }
+  .logo_house {
+    display: none;
+  }
+}
+
+/* Medium page media query for screens from 577px to 768px */
+@media (min-width: 577px) and (max-width: 768px) {
+  /* CSS styles specific to medium screens (e.g., larger mobile devices and tablets) */
+}
+
+@media (max-width: 768px) {
+  .member-img {
+    display: flex;
+    justify-content: center;
+  }
+  .member-info {
+    text-align: center;
+  }
+}

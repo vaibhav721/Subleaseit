@@ -1,0 +1,18 @@
+.blinking-dots {
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Add more styling here if needed */

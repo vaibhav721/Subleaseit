@@ -1,0 +1,22 @@
+.loading-dots {
+    display: inline-block;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #000;
+    animation: blink 0.5s infinite alternate;
+    margin: 0 3px;
+  }
+  
+  @keyframes blink {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }

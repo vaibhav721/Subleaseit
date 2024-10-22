@@ -1,0 +1,156 @@
+/* Set images inside carousel in posts page */
+.carousel-image {
+object-fit: fill;
+  object-position: center;
+  height: 30vh;
+  overflow: hidden;
+}
+
+/* Style the hr line in ad post card  */
+.hr-30 {
+  width: 30%;
+  text-align: center;
+  margin: 10px auto;
+  border-top: "1px dotted grey";
+  align-items: center;
+}
+
+
+
+.map-container {
+  height: 400px;
+  /* Adjust the height as needed */
+}
+
+.map {
+  height: 100%;
+}
+
+.card-container {
+  margin-top: 40px;
+}
+
+.ad-post-div {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.tab-content {
+  margin-top: 70px;
+}
+
+.single-sub-post-heading,
+.card-group-apartment-list {
+  margin: 20px 4px;
+}
+
+/*--------------------------------------------------------------
+# Plus button
+--------------------------------------------------------------*/
+.plus-button {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 55px;
+  bottom: 55px;
+  z-index: 996;
+  background: #990000;
+  width: 72px;
+  height: 72px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.plus-button i {
+  font-size: 44px;
+  color: #fff;
+  line-height: 0;
+}
+
+.plus-button:hover {
+  background: rgb(255, 199, 44);
+  color: #fff;
+}
+
+.plus-button.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+/* Media query for mobile screens */
+@media (max-width: 767px) {
+
+  /* Styles for screens up to 767px wide (mobile screens) */
+  .margin-top-50 {
+    margin-top: 50px;
+  }
+
+  .searchbox{
+    width:95%;
+  }
+  .section-footer {
+    margin-top: 80px;
+  }
+
+  .form-container {
+    margin: 0 10px;
+  }
+
+  .plus-button {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background:#990000;
+    width: 52px;
+    height: 52px;
+    border-radius: 50px;
+    transition: all 0.4s;
+  }
+
+}
+
+/* Media query for large screens */
+@media (min-width: 1250px) {
+
+  /* Styles for screens from 768px wide (laptop screens) */
+  .section-footer {
+    margin-top: 140px;
+  }
+ .searchbox {
+   width: 55%;
+ }
+  .form-container {
+    max-width: 30%;
+    margin: 0 auto;
+    /* Center the container horizontally */
+  }
+}
+
+@media (min-width:768px) and (max-width: 1249px) {
+  .section-footer {
+    margin-top: 140px;
+  }
+ .searchbox {
+   width: 85%;
+ }
+  .form-container {
+    max-width: 30%;
+    margin: 0 auto;
+    /* Center the container horizontally */
+  }
+
+  /* //change md = {3} to md = {2} in subposts.js */
+  .ad-post-div {
+    margin: 15px;
+    max-width: 400px;
+  }
+
+
+
+}

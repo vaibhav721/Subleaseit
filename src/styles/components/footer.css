@@ -1,0 +1,33 @@
+.footer-social-media {
+  margin-bottom: 30px;
+}
+
+.footer-social-media h3 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(153, 0, 0);
+}
+
+.footer-social-media p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Jost", sans-serif;
+  color: #5e5e5e;
+}
+
+/* footer.css */
+.footer-top {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  margin-top: auto;
+}
+
+#footer {
+  margin-top: auto;
+}
+

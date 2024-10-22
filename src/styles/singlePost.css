@@ -1,0 +1,92 @@
+.image-grid-container {
+  height: calc(33.33vh - 16px);
+  /* Adjust the value if needed */
+}
+
+.quilleditorcustom .ql-toolbar.ql-snow {
+  display: none;
+}
+
+.quilleditorcustom .ql-container.ql-snow {
+  /* border: 1px solid #e2e2e2; */
+  border: none;
+}
+
+.quilleditorcustom .ql-editor.ql-blank {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top: 1px solid #e2e2e2;
+  border-color: #e2e2e2;
+}
+
+*/ .image-grid-row {
+  height: 100%;
+}
+
+.image-col {
+  height: 100%;
+  padding: 8px;
+}
+
+.image {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Add this CSS to align the "Additional Notes:" heading to the left */
+.additional-notes-heading {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.section-footer-bottom {
+  margin-top: 80px;
+}
+
+.notesSection {
+  margin-bottom: 40px;
+}
+/* Add this CSS to align the content to the left */
+.left-align-content {
+  text-align: left;
+}
+
+@media (min-width: 1200px) {
+  .outerbox {
+    margin: 0 400px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .outerbox {
+    margin: 0 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .outerbox {
+    margin: 0;
+  }
+}
+
+.whatsapp_button{
+    display: inline-flex;
+      align-items: center;
+background-color: white;
+      border-radius: 15px;
+      cursor: pointer;
+      padding-left: 0;
+      padding-right: 0;
+      background-color: #ecede6;
+      
+}
+
+.whatsapp_button:hover{
+  background-color: #ecede6;
+}
+
+.whatsapp_inner{
+  display: inline-block;
+   
+}
+
