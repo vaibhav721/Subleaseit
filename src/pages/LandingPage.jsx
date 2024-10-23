@@ -29,23 +29,9 @@ function LandingPage() {
       photo: "assets/img/team/Vaibhav.jpg",
       college: "University of California, Riverside (UCR)",
       linkedinURL: "https://www.linkedin.com/in/vaibhav-gupta007",
-      description: "Backend Developer",
+      description: "Full Stack Developer",
     },
-    {
-      name: "Vighnesh Dhuri",
-      photo: "assets/img/team/vighnesh.jpeg",
-      college: "University of Southern California (USC)",
-      linkedinURL: "https://www.linkedin.com/in/vighnesh-dhuri",
-      description: "Product Manage & React Developer",
-    },
-    {
-      name: "Suryakant Kashyap",
-      photo: "assets/img/team/Suryakant.jpg",
-      college: "University of Southern California (USC)",
-      linkedinURL:
-        "https://www.linkedin.com/in/suryakant-kumar-kashyap-551001157",
-      description: "Frontend Developer",
-    },
+
     // Add more members here
   ];
 
@@ -81,7 +67,7 @@ function LandingPage() {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
-  let fetchUserAuthenticated = async () => {};
+  let fetchUserAuthenticated = async () => { };
 
   const getUserDataAfterLoggingIn = async () => {
     try {
