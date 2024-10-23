@@ -20,7 +20,6 @@ import MyPosts from "./pages/MyPosts";
 import { Map, GoogleApiWrapper } from "google-maps-react";
 import LoginSuccess from "./pages/auth/LoginSuccess";
 import LoginFailure from "./pages/auth/loginFailure";
-import mixpanel from "./components/mixpanelInit";
 
 function App() {
   const [user, setUser] = useState(null);

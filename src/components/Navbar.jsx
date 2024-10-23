@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Image from "react-bootstrap/Image";
 import MyPosts from "../pages/MyPosts";
-import mixpanel from "../components/mixpanelInit";
+//import mixpanel from "../components/mixpanelInit";
 import "../styles/landingPage.css";
 import { toast } from "react-toastify";
 
@@ -37,7 +37,7 @@ function NavScrollExample() {
         method: "post",
       });
       const data = await response.json();
-      
+
       navigateToHome(data.url);
     } catch (error) {
       toast.error("Could not authorize with Google");
@@ -46,7 +46,7 @@ function NavScrollExample() {
 
   const handleClick = (event) => {
     event.preventDefault();
-    mixpanel.track("Login Attempt");
+    // mixpanel.track("Login Attempt");
     getUser();
   };
 
@@ -101,15 +101,15 @@ function NavScrollExample() {
               </Nav.Link>
               {JSON.parse(localStorage.getItem("tokenDecoded")) !=
                 undefined && (
-                <Nav.Link
-                  href="/myposts"
-                  style={{
-                    color: currentPage === "My Posts" ? "#FFCC00" : "white", //if the current page is equal to the text then make it active
-                  }}
-                >
-                  My Posts
-                </Nav.Link>
-              )}
+                  <Nav.Link
+                    href="/myposts"
+                    style={{
+                      color: currentPage === "My Posts" ? "#FFCC00" : "white", //if the current page is equal to the text then make it active
+                    }}
+                  >
+                    My Posts
+                  </Nav.Link>
+                )}
             </Nav>
           </Navbar.Collapse>
           {JSON.parse(localStorage.getItem("tokenDecoded")) != undefined && (
@@ -118,7 +118,7 @@ function NavScrollExample() {
                 <span>
                   {JSON.parse(localStorage.getItem("tokenDecoded")) != null &&
                     JSON.parse(localStorage.getItem("tokenDecoded")).picture !=
-                      undefined &&
+                    undefined &&
                     JSON.parse(localStorage.getItem("tokenDecoded")).picture
                       .length > 1 && (
                       <img
@@ -139,14 +139,14 @@ function NavScrollExample() {
                     {" "}
                     {JSON.parse(localStorage.getItem("tokenDecoded")) != null &&
                       JSON.parse(localStorage.getItem("tokenDecoded"))[
-                        "first_name"
+                      "first_name"
                       ]}
                   </span>
                   <span>
                     {" "}
                     {JSON.parse(localStorage.getItem("tokenDecoded")) != null &&
                       JSON.parse(localStorage.getItem("tokenDecoded"))[
-                        "last_name"
+                      "last_name"
                       ]}
                   </span>
                 </span>
@@ -155,10 +155,7 @@ function NavScrollExample() {
             >
               <NavDropdown.Item
                 href="/"
-                onClick={() => {
-                  mixpanel.track("Logout");
-                  localStorage.clear();
-                }}
+
                 style={{ color: "black" }}
               >
                 Logout

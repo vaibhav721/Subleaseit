@@ -12,7 +12,7 @@ import "../styles/adpost.css";
 import { useParams } from "react-router-dom";
 import Footer from "../components/footer";
 import NavScrollExample from "../components/Navbar";
-import mixpanel from "../components/mixpanelInit";
+//import mixpanel from "../components/mixpanelInit";
 import ReactQuill from "react-quill";
 import heic2any from "heic2any";
 import Spinner from "react-bootstrap/Spinner";
@@ -278,7 +278,7 @@ function MyPostEdit() {
         // 
         navigate("/subleaseposts/" + id);
         toast.success("Ad Changed Successfully!");
-        mixpanel.track("post edited", formData);
+        // mixpanel.track("post edited", formData);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -295,7 +295,7 @@ function MyPostEdit() {
         // toast.error("Oops! Something went wrong.");
         setIsLoading(false);
 
-        mixpanel.track("post edit failed", formData);
+        // mixpanel.track("post edit failed", formData);
         // toast.error("Oops! Something went wrong.");
       });
   };

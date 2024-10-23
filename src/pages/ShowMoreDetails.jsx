@@ -22,7 +22,7 @@ import "react-quill/dist/quill.snow.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader from "react-bootstrap/Spinner";
 
-import mixpanel from "../components/mixpanelInit";
+//import mixpanel from "../components/mixpanelInit";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { parseISO, format } from "date-fns";
@@ -144,7 +144,7 @@ function ShowMoreDetails() {
     try {
       tokenDecoded = localStorage.getItem("tokenDecoded");
       tokenDecoded = JSON.parse(tokenDecoded);
-    } catch (err) {}
+    } catch (err) { }
     const email = contactData.email;
     const subject = "[SubleaseIt] Query regarding " + subPost.street;
     let body =
@@ -169,11 +169,7 @@ function ShowMoreDetails() {
         tokenDecoded.email;
     }
 
-    mixpanel.track("Sends Email", {
-      owner_email_id: contactData.email,
-      user_email_id: tokenDecoded.email,
-      address: subPost.street + ", Apt number: " + subPost.appt_no,
-    });
+
 
     const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(
       subject
@@ -204,20 +200,15 @@ function ShowMoreDetails() {
   const setTextAndUniqueURL = (sub) => {
     const startDate = formatDate(sub.sublease_start_date);
     const endDate = formatDate(sub.sublease_end_date);
-    const text = `🏠 Subleasing ${sub.type} room for ${
-      sub.rent
-    }$ /month \n\n📅 ${startDate} to ${endDate}\n\n🛏 Bed/Bath: ${
-      sub.no_of_bed
-    }B${sub.no_of_bath}B\n\n${
-      sub.tot_ppl_in_appt &&
+    const text = `🏠 Subleasing ${sub.type} room for ${sub.rent
+      }$ /month \n\n📅 ${startDate} to ${endDate}\n\n🛏 Bed/Bath: ${sub.no_of_bed
+      }B${sub.no_of_bath}B\n\n${sub.tot_ppl_in_appt &&
       "👯 Total people in apartment: " +
-        sub.tot_ppl_in_appt +
-        " (including you)\n\n"
-    }📍 Address: ${sub.appt_no}, ${sub.street}\n\n👤 Gender preference: ${
-      sub.gender
-    }\n\n🥘 Diet preference: ${
-      sub.diet
-    }\n\nℹ Find more images & details at subleaseit:`;
+      sub.tot_ppl_in_appt +
+      " (including you)\n\n"
+      }📍 Address: ${sub.appt_no}, ${sub.street}\n\n👤 Gender preference: ${sub.gender
+      }\n\n🥘 Diet preference: ${sub.diet
+      }\n\nℹ Find more images & details at subleaseit:`;
     // const baseUrlSocial = process.env.REACT_APP_BASE_URL_Social;
     setText(text);
     const url = `${process.env.REACT_APP_BASE_URL}/subleaseit/adpost/${sub["uuid"]}`;
@@ -241,10 +232,10 @@ function ShowMoreDetails() {
       setShowMoreDetailsSpinner(true);
       const res = await axios.get(
         baseUrl +
-          "/api/v1/subleaseit/user/" +
-          subPost["User.username"] +
-          "/adPost/" +
-          subPost["uuid"],
+        "/api/v1/subleaseit/user/" +
+        subPost["User.username"] +
+        "/adPost/" +
+        subPost["uuid"],
         {
           withCredentials: true,
         }
@@ -323,7 +314,7 @@ function ShowMoreDetails() {
                 <div className="card mb-3 mt-3 border-0">
                   <div className="card-img-top">
                     {JSON.parse(subPost["imageUrls"]) &&
-                    JSON.parse(subPost["imageUrls"]).length > 1 ? (
+                      JSON.parse(subPost["imageUrls"]).length > 1 ? (
                       <Carousel
                         className="mb-2"
                         variant="dark"
@@ -426,8 +417,8 @@ function ShowMoreDetails() {
                                 {JSON.parse(
                                   localStorage.getItem("tokenDecoded")
                                 ) !== null &&
-                                JSON.parse(localStorage.getItem("tokenDecoded"))
-                                  .uuid === subPost["User.username"] ? (
+                                  JSON.parse(localStorage.getItem("tokenDecoded"))
+                                    .uuid === subPost["User.username"] ? (
                                   <OverlayTrigger
                                     placement={tooltipPlacement}
                                     overlay={tooltip}
@@ -612,9 +603,7 @@ function ShowMoreDetails() {
                                       aria-controls="collapseExample"
                                       style={{ float: "left" }}
                                       onClick={() => {
-                                        mixpanel.track("Contact Request", {
-                                          post_id: subPost["uuid"],
-                                        });
+
                                         contactRequest(subPost["uuid"]);
                                       }}
                                     >

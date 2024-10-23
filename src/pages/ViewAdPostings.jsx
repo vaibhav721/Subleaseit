@@ -23,7 +23,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Footer from "../components/footer";
 import jwt from "jsonwebtoken";
-import mixpanel from "../components/mixpanelInit";
+//import mixpanel from "../components/mixpanelInit";
 import moment from "moment";
 import Loader from "react-bootstrap/Spinner";
 import { parseISO, format } from "date-fns";
@@ -50,9 +50,7 @@ function ViewAdPostings() {
   };
 
   const handleButtonClick = (uuid) => {
-    mixpanel.track("Show Details", {
-      post_id: uuid,
-    });
+
     localStorage.setItem("pageNumbertogoback", pageNumber);
     localStorage.setItem("searchKeyword", searchKeyword);
     navigate(`/subleaseposts/${uuid}`);
@@ -141,7 +139,7 @@ function ViewAdPostings() {
     try {
       const res = await axios.post(
         baseUrl +
-          `/api/v1/subleaseit/adpost/search?keyword=${searchKeyword}&pageNumber=${pageNumber}`,
+        `/api/v1/subleaseit/adpost/search?keyword=${searchKeyword}&pageNumber=${pageNumber}`,
         {
           withCredentials: true,
         }
@@ -243,10 +241,8 @@ function ViewAdPostings() {
     }
 
     try {
-      mixpanel.identify(JSON.parse(localStorage.getItem("tokenDecoded")).email);
-      mixpanel.track("Sign in", {
-        Visitor: JSON.parse(localStorage.getItem("tokenDecoded")).email,
-      });
+      // mixpanel.identify(JSON.parse(localStorage.getItem("tokenDecoded")).email);
+
     } catch (error) {
       //
     }
@@ -257,9 +253,7 @@ function ViewAdPostings() {
 
   const handlePreviousPage = () => {
     if (pageNumber > 1) {
-      mixpanel.track("Previous Page", {
-        page_no: pageNumber,
-      });
+
       const newPageNumber = pageNumber - 1;
       //
       // setPageNumber(newPageNumber);
@@ -274,9 +268,7 @@ function ViewAdPostings() {
     }
   };
   const handleNextPage = () => {
-    mixpanel.track("Next Page", {
-      page_number: pageNumber,
-    });
+
     const newPageNumber = pageNumber + 1;
     setPageNumber(newPageNumber);
     // getSubPosts(newPageNumber);
@@ -302,9 +294,7 @@ function ViewAdPostings() {
 
   const performSearch = () => {
     // Access the searchQuery value here
-    mixpanel.track("Search Rental", {
-      search_query: searchQuery,
-    });
+
     //
     // navigate("/subleaseposts?keyword=" + searchQuery);
     // navigate(`/subleaseposts?keyword=${searchQuery}&page=${pageNumber}`);
@@ -608,9 +598,8 @@ function ViewAdPostings() {
               </li>
               {pageNumbers.map((number) => (
                 <li
-                  className={`page-item ${
-                    pageNumber === number ? "active" : ""
-                  }`}
+                  className={`page-item ${pageNumber === number ? "active" : ""
+                    }`}
                   key={number}
                 >
                   <button
@@ -625,9 +614,8 @@ function ViewAdPostings() {
                 </li>
               ))}
               <li
-                className={`page-item ${
-                  pageNumber === pageNumbers.length ? "disabled" : ""
-                }`}
+                className={`page-item ${pageNumber === pageNumbers.length ? "disabled" : ""
+                  }`}
               >
                 <button className="page-link" onClick={handleNextPage}>
                   Next

@@ -24,7 +24,7 @@ import Spinner from "../components/Spinner";
 import Modal from "react-bootstrap/Modal";
 import Footer from "../components/footer";
 import NavScrollExample from "../components/Navbar";
-import mixpanel from "../components/mixpanelInit";
+//import mixpanel from "../components/mixpanelInit";
 import moment from "moment";
 import { parseISO, format } from "date-fns";
 
@@ -58,13 +58,13 @@ function MyPosts() {
   };
 
   const editButtonClick = (aptUUID) => {
-    mixpanel.track("Edit post try", { post_id: aptUUID });
+    // mixpanel.track("Edit post try", { post_id: aptUUID });
     navigate(`/subleaseposts/${aptUUID}/edit`);
   };
   //
 
   const deleteButtonClick = (aptUUID) => {
-    mixpanel.track("Delete post try", { post_id: aptUUID });
+    //  mixpanel.track("Delete post try", { post_id: aptUUID });
     //
 
     setShowModal(true);
@@ -86,7 +86,7 @@ function MyPosts() {
         //
         setShowModal(false);
         toast.success("Ad deleted Successfully");
-        mixpanel.track("post deleted", { post_id: aptUUID });
+        //  mixpanel.track("post deleted", { post_id: aptUUID });
         getSubPosts(pageNumber);
       })
       .catch((err) => {
@@ -150,7 +150,7 @@ function MyPosts() {
 
   useEffect(() => {
     getSubPosts(1);
-    mixpanel.track("Edit Ads page visit");
+    // mixpanel.track("Edit Ads page visit");
   }, []);
 
   const handlePreviousPage = () => {
@@ -192,8 +192,8 @@ function MyPosts() {
           onHide={handleClose}
           backdrop="static"
           keyboard={false}
-          // aria-labelledby="contained-modal-title-vcenter"
-          // centered
+        // aria-labelledby="contained-modal-title-vcenter"
+        // centered
         >
           <Modal.Header>
             <Modal.Title>Confirm delete</Modal.Title>
@@ -414,9 +414,8 @@ function MyPosts() {
             </li> */}
               {pageNumbers.map((number) => (
                 <li
-                  className={`page-item ${
-                    pageNumber === number ? "active" : ""
-                  }`}
+                  className={`page-item ${pageNumber === number ? "active" : ""
+                    }`}
                   key={number}
                 >
                   <button
@@ -428,9 +427,8 @@ function MyPosts() {
                 </li>
               ))}
               <li
-                className={`page-item ${
-                  pageNumber === pageNumbers.length ? "disabled" : ""
-                }`}
+                className={`page-item ${pageNumber === pageNumbers.length ? "disabled" : ""
+                  }`}
               >
                 <button className="page-link" onClick={handleNextPage}>
                   Next

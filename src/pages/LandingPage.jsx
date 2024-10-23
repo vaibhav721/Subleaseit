@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import jwt, { decode } from "jsonwebtoken";
 import "../styles/landingPage.css";
 import Footer from "../components/footer";
-import mixpanel from "mixpanel-browser";
+//import mixpanel from "mixpanel-browser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { Spinner as Loader } from "react-bootstrap";
@@ -57,9 +57,7 @@ function LandingPage() {
 
   useEffect(() => {
     ifJWTTokenExistsRedirectToHome();
-    mixpanel.track("Visitor", {
-      Visitor: "Landing Page Visitor",
-    });
+
     setLoginLoader(false);
   }, []);
 
@@ -112,7 +110,7 @@ function LandingPage() {
     try {
       event.preventDefault();
       setLoginLoader(true);
-      mixpanel.track("Login Attempt");
+      // mixpanel.track("Login Attempt");
       getUser();
     } catch (_err) {
       setLoginLoader(false);

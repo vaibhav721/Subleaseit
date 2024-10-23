@@ -18,7 +18,7 @@ import Footer from "../components/footer";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Import Quill's CSS
 import lottie from "lottie-web";
-import mixpanel from "../components/mixpanelInit";
+//import mixpanel from "../components/mixpanelInit";
 import PhoneInput from "react-phone-number-input";
 // import { isValidPhoneNumber } from 'react-phone-number-input'
 import isValidPhoneNumber from "libphonenumber-js";
@@ -349,7 +349,7 @@ function AdPost() {
       formData.append("imageUrls", selectedFiles[i]);
     }
 
-    mixpanel.track("New Post Try", formData);
+   // mixpanel.track("New Post Try", formData);
 
     setIsLoading(true);
     // document.getElementById("footer").classList.add("fixed-bottom");
@@ -376,7 +376,7 @@ function AdPost() {
         navigate("/subleaseposts/" + id);
         toast.success("Congrats! Your ad is live now.");
 
-        mixpanel.track("post created", formData);
+       // mixpanel.track("post created", formData);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -385,7 +385,7 @@ function AdPost() {
         toast.error(err.response.data[0]);
         setIsFormSubmitting(false);
 
-        mixpanel.track("post update failed", formData);
+      //  mixpanel.track("post update failed", formData);
         // setIsAnimationVisible(false);
         // animationInstance.destroy();
         // document.getElementById("footer").classList.remove("fixed-bottom");
